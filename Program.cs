@@ -1,4 +1,6 @@
-﻿namespace DZ_5th_lesson
+﻿using System;
+
+namespace DZ_5th_lesson
 {
     internal class Program
     {
@@ -12,7 +14,8 @@
                 for (int i = 0; i < _array.Length; i++)
                 {
                     _array[i] = new Random().Next(100, 1000);                    
-                }                
+                }
+                
                 return _array;
             }                       
 
@@ -32,7 +35,7 @@
 
             int sum = sum_of_odd_elements(dz_array);
 
-            Console.WriteLine(sum);            
+            Console.WriteLine($"[{String.Join(", ", dz_array)}] -> {sum}");                      
         }
     }
 }

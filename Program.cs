@@ -24,7 +24,6 @@
             {
                 count += i % 2 == 0 ? 1 : 0;
             }
-
             Console.WriteLine($"[{String.Join(", ", dz_array)}]\n");
             Console.WriteLine(count);            
         }

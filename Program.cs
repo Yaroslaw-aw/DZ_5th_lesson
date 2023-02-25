@@ -4,29 +4,48 @@
     {
         static void Main(string[] args)
         {
-            int[] CreateArray()
+            double[] CreateArray()
             {
                 int array_size = new Random().Next(1, 11);
-                int[] _array = new int[array_size];
+                double[] _array = new double[array_size];
 
                 for (int i = 0; i < _array.Length; i++)
                 {
                     _array[i] = new Random().Next(100, 1000);                    
                 }
                 return _array;
-            }
+            }                       
 
-            int[] dz_array = CreateArray();            
-
-            int count = 0;
-
-            foreach (int i in dz_array)
+            double The_difference_between_max_min(double[] _dz)
             {
-                count += i % 2 == 0 ? 1 : 0;
+                double defference;
+
+                double max = _dz[1], min = _dz[0];
+
+                if (_dz[1] < _dz[0])
+                {
+                    min = _dz[1];
+                    max = _dz[0];
+                }
+
+                for (int i = 2; i < _dz.Length; i++)
+                {                    
+                    if (_dz[i] < min)
+                    {
+                        min = _dz[i];
+                    }
+                    if (_dz[i] > max)
+                    {
+                        max = _dz[i];
+                    }
+                }
+                defference = max - min;
+                return defference;
             }
 
-            Console.WriteLine($"[{String.Join(", ", dz_array)}]\n");
-            Console.WriteLine(count);            
+            double[] dz_array = CreateArray();            
+
+            Console.WriteLine($"[{String.Join(", ", dz_array)}] -> {The_difference_between_max_min(dz_array)}");                       
         }
     }
 }

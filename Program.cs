@@ -6,27 +6,33 @@
         {
             int[] CreateArray()
             {
-                int array_size = new Random().Next(1, 11);
+                int array_size = new Random().Next(3, 11);
                 int[] _array = new int[array_size];
 
                 for (int i = 0; i < _array.Length; i++)
                 {
                     _array[i] = new Random().Next(100, 1000);                    
-                }
+                }                
                 return _array;
-            }
+            }                       
 
-            int[] dz_array = CreateArray();            
-
-            int count = 0;
-
-            foreach (int i in dz_array)
+            int sum_of_odd_elements(int[] _array)
             {
-                count += i % 2 == 0 ? 1 : 0;
+                int sum =0;
+
+                for (int i = 1; i < _array.Length; i += 2)
+                {
+                    sum += _array[i];
+                }
+
+                return sum;
             }
 
-            Console.WriteLine($"[{String.Join(", ", dz_array)}]\n");
-            Console.WriteLine(count);            
+            int[] dz_array = CreateArray();
+
+            int sum = sum_of_odd_elements(dz_array);
+
+            Console.WriteLine(sum);            
         }
     }
 }
